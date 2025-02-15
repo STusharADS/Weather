@@ -2,35 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeatherAPI</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    body {
-        background-color: black;
-        color: white;
-    }
-</style>
 
 <body>
-    WeatherAPI
+    <div class="container">
+        <div>
+            <div class="weather">
+                <div class="temp">20</div>
+                <div class="time_location">
+                    <p>Mumbai</p>
+
+                    <span>Random date and Time</span>
+                </div>
+
+                <div class="weather_condition">
+                    <img src="" alt="" />
+                    <span>Condition</span>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <form>
+                <input type="text" placeholder="Search for Location" class="searchField" />
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </div>
 </body>
-<script>
-    //Weather API
-    async function fetchData(target) {
-        let endpoint = `http://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${target}&aqi=no`
 
-        let data = await fetch(endpoint);
-        let responseData = await data.json();
-        let name = responseData.location.name;
-
-        let tempInC = responseData.current.temp_c;
-
-        console.log(name);
-        console.log(`Temperature: ${tempInC}°C`);
-    }
-    fetchData("delhi");
-</script>
+<script src="index.js"></script>
 
 </html>
