@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPI</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<body>
+    WeatherAPI
+</body>
+<script>
+    //Weather API
+    async function fetchData(target) {
+        let endpoint = `http://api.weatherapi.com/v1/current.json?key=35af7ff606db422880d141328231305&q=${target}&aqi=no`
+
+        let data = await fetch(endpoint);
+        let responseData = await data.json();
+        let name = responseData.location.name;
+
+        let tempInC = responseData.current.temp_c;
+
+        console.log(name);
+        console.log(`Temperature: ${tempInC}°C`);
+    }
+    fetchData("delhi");
+</script>
+
+</html>
